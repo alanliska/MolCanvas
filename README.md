@@ -1,6 +1,7 @@
 # MolCanvas
 Simple molecular viewer and editor
-![alt text](https://github.com/alanliska/MolCanvas/app/src/main/res/drawable/icon.png)
+
+![alt text](https://https://github.com/alanliska/MolCanvas/tree/main/app/src/main/res/drawable/icon.png)
 
 Authors: Alan Liška, Veronika Růžičková (J. Heyrovský Institute of Physical Chemistry of the Czech Academy of Sciences)
 
