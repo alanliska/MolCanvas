@@ -1,4 +1,4 @@
-!![icon](https://github.com/user-attachments/assets/c90e1eb4-90dd-4f7c-a395-ad7395c42f66)
+![icon](https://github.com/user-attachments/assets/c90e1eb4-90dd-4f7c-a395-ad7395c42f66)
 # MolCanvas
 Simple molecular viewer and editor
 
