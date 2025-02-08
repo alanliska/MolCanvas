@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub //
                 final AlertDialog dialog = new AlertDialog.Builder(MainActivity.this).setMessage(
-                                "\nMolCanvas (ver. 1.0)\n\nApp source code: https://github.com/alanliska/MolCanvas\n\nLICENSE\n\nCopyright (c) 2025 J. Heyrovsky Institute of Physical Chemistry (Prague, Czech Republic), Alan Liska, Veronika Ruzickova\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\nACKNOWLEDGEMENTS\n\nThe authors appreciate the financial suport from the GACR project 23-06465S, and internal (institutional) support RVO: 61388955.")
+                                "\nMolCanvas (ver. 1.0.1)\n\nApp source code: https://github.com/alanliska/MolCanvas\n\nLICENSE\n\nCopyright (c) 2025 J. Heyrovsky Institute of Physical Chemistry (Prague, Czech Republic), Alan Liska, Veronika Ruzickova\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\nACKNOWLEDGEMENTS\n\nThe authors appreciate the financial suport from the GACR project 23-06465S, and internal (institutional) support RVO: 61388955.")
                         .setTitle("About the MolCanvas app")
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
@@ -487,7 +487,7 @@ public class MainActivity extends AppCompatActivity {
                     CanvasView.zmat.sort(Comparator.comparing(a -> a.getTouchTime()));
                     Collections.reverse(CanvasView.zmat);
                     for (Object object : CanvasView.zmat) {
-                        if (object.getObjectType() == 1) {
+                        if (object.getObjectType() == 1 && object.getAtomBorderColor1() == Color.RED) {
                             if (counter == 1) {
                                 x1 = object.getAtom1X_Ang();
                                 y1 = object.getAtom1Y_Ang();
@@ -549,7 +549,7 @@ public class MainActivity extends AppCompatActivity {
                     CanvasView.zmat.sort(Comparator.comparing(a -> a.getTouchTime()));
                     Collections.reverse(CanvasView.zmat);
                     for (Object object : CanvasView.zmat) {
-                        if (object.getObjectType() == 1) {
+                        if (object.getObjectType() == 1 && object.getAtomBorderColor1() == Color.RED) {
                             if (counter == 1) {
                                 x1 = object.getAtom1X_Ang();
                                 y1 = object.getAtom1Y_Ang();
@@ -557,7 +557,7 @@ public class MainActivity extends AppCompatActivity {
                             } else if (counter == 2) {
                                 x2 = object.getAtom1X_Ang();
                                 y2 = object.getAtom1Y_Ang();
-                                y2 = object.getAtom1Z_Ang();
+                                z2 = object.getAtom1Z_Ang();
                             } else if (counter == 3) {
                                 x3 = object.getAtom1X_Ang();
                                 y3 = object.getAtom1Y_Ang();
@@ -618,7 +618,7 @@ public class MainActivity extends AppCompatActivity {
                     CanvasView.zmat.sort(Comparator.comparing(a -> a.getTouchTime()));
                     Collections.reverse(CanvasView.zmat);
                     for (Object object : CanvasView.zmat) {
-                        if (object.getObjectType() == 1) {
+                        if (object.getObjectType() == 1 && object.getAtomBorderColor1() == Color.RED) {
                             if (counter == 1) {
                                 x1 = object.getAtom1X_Ang();
                                 y1 = object.getAtom1Y_Ang();
