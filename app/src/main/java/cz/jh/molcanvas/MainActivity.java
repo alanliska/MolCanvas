@@ -279,7 +279,18 @@ public class MainActivity extends AppCompatActivity {
         deleteButton = new View.OnClickListener() {
             public void onClick(View v) {
                 // TODO Auto-generated method stub //
-                deleteAtoms();
+                if (CanvasView.getSelectedAtomsCount() != 0) {
+                    deleteAtoms();
+                } else if (CanvasView.getSelectedAtomsCount() == 0){
+                    final AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+                            .setMessage("Please select atoms to be deleted first.").setTitle("Error")
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int id) {
+                                }
+                            }).create();
+                    dialog.show();
+                }
                 molCanvasView.invalidate();
             };
         };
@@ -295,6 +306,7 @@ public class MainActivity extends AppCompatActivity {
         replaceButton = new View.OnClickListener() {
             public void onClick(View v) {
                 // TODO Auto-generated method stub //
+                if (CanvasView.getSelectedAtomsCount() != 0){
                 int atomBorderCol;
                 int selectedBorderCol = Color.RED;
                 int ind = 0;
@@ -371,7 +383,7 @@ public class MainActivity extends AppCompatActivity {
                             repl.getAtom1Z_Ang() + Preferences.get().getValue("text_shift_z_Ang"), 0.0f, 0.0f, 0.0f,
                             4));
                     // this less power demanding routine works only if there is one atom being replaced
-                    if (replacedAtomsCount == 1){
+                    if (replacedAtomsCount == 1) {
                         for (Object object : CanvasView.zmat) {
                             if (object.getObjectType() == 1) {
                                 float distanceFromAtoms = Methods.dist3D(repl.getAtom1X_Ang(), repl.getAtom1Y_Ang(),
@@ -431,7 +443,7 @@ public class MainActivity extends AppCompatActivity {
                 CanvasView.zmat.addAll(newBonds);
                 newBonds.clear();
                 // the case when there is more atoms being replaced
-                if (replacedAtomsCount > 1){
+                if (replacedAtomsCount > 1) {
                     generateAllBonds();
                 }
                 CanvasView.zmat.sort(Comparator.comparing(a -> a.getAtomNumber1()));
@@ -440,6 +452,16 @@ public class MainActivity extends AppCompatActivity {
                 // for correct displaying, the more distant objects are drawn first
                 CanvasView.zmat.sort(Comparator.comparing(a -> a.getAtom12Z_Ang()));
 
+            } else if (CanvasView.getSelectedAtomsCount() == 0){
+                    final AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+                            .setMessage("Please select atoms to be replaced first, and make sure that you picked another element from the periodic table.").setTitle("Error")
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int id) {
+                                }
+                            }).create();
+                    dialog.show();
+                }
                 molCanvasView.invalidate();
             }
         };
